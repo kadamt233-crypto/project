@@ -1,0 +1,520 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>मन्त्र | Mantra</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #17130f;
+    color: #f5e8d5;
+    line-height: 1.6;
+}
+
+header {
+    background: #332216;
+    padding: 25px 15px;
+    text-align: center;
+    border-bottom: 2px solid #e5a052;
+}
+
+header h1 {
+    color: #ffb66d;
+    font-size: 38px;
+    margin: 0;
+}
+
+header p {
+    color: #e8d5bd;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    color: #ffb66d;
+    border-bottom: 1px solid #65452c;
+    padding-bottom: 8px;
+    margin-top: 30px;
+}
+
+h3 {
+    color: #ffb66d;
+}
+
+.card {
+    background: #261e17;
+    padding: 18px;
+    margin: 14px 0;
+    border: 1px solid #59402b;
+    border-radius: 12px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0 15px;
+    background: #17130f;
+    color: white;
+    border: 1px solid #765537;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+label {
+    color: #f0d6b7;
+}
+
+button {
+    background: #f3a65d;
+    color: #24160c;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ffc17f;
+}
+
+.product {
+    background: #261e17;
+    border: 1px solid #65452c;
+    border-radius: 12px;
+    padding: 17px;
+    margin: 12px 0;
+}
+
+.score {
+    color: #8fe0a0;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.warning {
+    color: #ffbd69;
+}
+
+.badge {
+    color: #8fe0a0;
+    font-weight: bold;
+}
+
+.small {
+    color: #c8b7a3;
+    font-size: 14px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #c8b7a3;
+}
+
+@media (min-width: 700px) {
+    .product-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>मन्त्र — Mantra</h1>
+    <p>Product Feedback & Rating Decision System</p>
+    <p>Inspired by Kautilya's Arthashastra</p>
+</header>
+
+<div class="container">
+
+    <section class="card">
+        <h2>गूढपुरुष — Information Gathering</h2>
+        <p>
+            This website collects product ratings, descriptions, and
+            customer feedback to help users compare different products.
+        </p>
+
+        <h2>मन्त्र — Consultation and Planning</h2>
+        <p>
+            Users can choose the importance of Quality, Value for Money,
+            and Service according to their preferences.
+        </p>
+
+        <h2>निर्णय — Decision-Making</h2>
+        <p>
+            The system calculates product scores, ranks products,
+            and recommends the highest-scoring product.
+        </p>
+    </section>
+
+    <h2>प्राथमिकताएँ — Your Priorities</h2>
+
+    <div class="card">
+        <label>
+            Quality Importance:
+            <span id="qValue">3</span>
+        </label>
+        <input type="range" id="qWeight" min="1" max="5" value="3">
+
+        <label>
+            Value for Money Importance:
+            <span id="vValue">3</span>
+        </label>
+        <input type="range" id="vWeight" min="1" max="5" value="3">
+
+        <label>
+            Service Importance:
+            <span id="sValue">3</span>
+        </label>
+        <input type="range" id="sWeight" min="1" max="5" value="3">
+
+        <p class="small">
+            Adjust the sliders to change the importance of each factor.
+        </p>
+    </div>
+
+    <h2>उत्पाद विवरण — Product Details</h2>
+
+    <div class="card">
+        <label for="productName">Select Product</label>
+        <select id="productName">
+            <option>Wireless Earbuds</option>
+            <option>Bluetooth Neckband</option>
+            <option>Wireless Headphones</option>
+            <option>Smartphone</option>
+            <option>Bluetooth Speaker</option>
+        </select>
+
+        <label for="description">Product Description</label>
+        <textarea id="description"
+            placeholder="Write the product description in English..."></textarea>
+    </div>
+
+    <h2>मूल्यांकन — Product Rating</h2>
+
+    <div class="card">
+        <label for="quality">Quality Rating (1–5)</label>
+        <select id="quality">
+            <option value="1">1 - Poor</option>
+            <option value="2">2 - Fair</option>
+            <option value="3" selected>3 - Good</option>
+            <option value="4">4 - Very Good</option>
+            <option value="5">5 - Excellent</option>
+        </select>
+
+        <label for="value">Value for Money Rating (1–5)</label>
+        <select id="value">
+            <option value="1">1 - Poor</option>
+            <option value="2">2 - Fair</option>
+            <option value="3" selected>3 - Good</option>
+            <option value="4">4 - Very Good</option>
+            <option value="5">5 - Excellent</option>
+        </select>
+
+        <label for="service">Service Rating (1–5)</label>
+        <select id="service">
+            <option value="1">1 - Poor</option>
+            <option value="2">2 - Fair</option>
+            <option value="3" selected>3 - Good</option>
+            <option value="4">4 - Very Good</option>
+            <option value="5">5 - Excellent</option>
+        </select>
+
+        <h2>प्रतिक्रिया — Product Feedback</h2>
+
+        <label for="feedback">Write Feedback</label>
+        <textarea id="feedback"
+            placeholder="Write your product experience in English..."></textarea>
+
+        <button type="button" onclick="submitFeedback()">
+            Submit Rating & Feedback
+        </button>
+
+        <p class="small">
+            No customer name is required.
+        </p>
+    </div>
+
+    <h2>क्रम निर्धारण — Product Ranking</h2>
+
+    <div id="ranking" class="product-grid"></div>
+
+    <h2>प्रतिक्रिया विवरण — Feedback Records</h2>
+
+    <div id="feedbackRecords" class="card">
+        No feedback submitted yet.
+    </div>
+
+    <h2>व्यवसाय मॉडल — Business Model</h2>
+
+    <div class="card">
+        <h3>Customers</h3>
+        <p>
+            Shoppers who want to compare products and sellers who want
+            to understand customer feedback.
+        </p>
+
+        <h3>Value Proposition</h3>
+        <p>
+            Product comparisons based on quality, value for money,
+            service, and customer feedback.
+        </p>
+
+        <h3>Revenue Model</h3>
+        <p>
+            A possible future revenue model includes premium seller
+            analytics and product comparison reports.
+        </p>
+
+        <h3>Costs</h3>
+        <p>
+            Possible costs include website hosting, maintenance,
+            development, and feedback moderation.
+        </p>
+    </div>
+
+    <h2>अर्थशास्त्र संबंध — Connection with Arthashastra</h2>
+
+    <div class="card">
+        <p>
+            Mantra connects selected ideas associated with Kautilya's
+            Arthashastra to a modern product comparison system.
+            Information gathering is represented by product feedback,
+            consultation by user priorities, and decision-making by
+            product ranking and risk warnings.
+        </p>
+        <p class="small">
+            This is a conceptual connection, not a claim that the
+            Arthashastra described a modern digital rating system.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    Mantra — Product Feedback & Rating Prototype
+</footer>
+
+<script>
+const STORAGE_KEY = "mantraFeedbackRecords";
+
+let records = [];
+
+try {
+    records = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    if (!Array.isArray(records)) records = [];
+} catch (error) {
+    records = [];
+}
+
+function saveRecords() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+    } catch (error) {
+        alert("Browser storage is unavailable. Your data may not persist.");
+    }
+}
+
+function escapeHTML(text) {
+    return String(text).replace(/[&<>"']/g, function (character) {
+        return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        }[character];
+    });
+}
+
+function calculateScore(record) {
+    const qWeight = Number(document.getElementById("qWeight").value);
+    const vWeight = Number(document.getElementById("vWeight").value);
+    const sWeight = Number(document.getElementById("sWeight").value);
+
+    const totalWeight = qWeight + vWeight + sWeight;
+
+    return (
+        record.quality * qWeight +
+        record.value * vWeight +
+        record.service * sWeight
+    ) / totalWeight;
+}
+
+function submitFeedback() {
+    const product = document.getElementById("productName").value;
+    const description = document.getElementById("description").value.trim();
+    const feedback = document.getElementById("feedback").value.trim();
+
+    if (!feedback) {
+        alert("Please write product feedback before submitting.");
+        return;
+    }
+
+    const record = {
+        product: product,
+        description: description,
+        quality: Number(document.getElementById("quality").value),
+        value: Number(document.getElementById("value").value),
+        service: Number(document.getElementById("service").value),
+        feedback: feedback,
+        date: new Date().toLocaleDateString()
+    };
+
+    records.push(record);
+    saveRecords();
+
+    document.getElementById("feedback").value = "";
+
+    showRanking();
+    showFeedback();
+
+    alert("Product rating and feedback submitted successfully!");
+}
+
+function showRanking() {
+    const grouped = {};
+
+    records.forEach(function (record) {
+        if (!grouped[record.product]) {
+            grouped[record.product] = {
+                product: record.product,
+                quality: 0,
+                value: 0,
+                service: 0,
+                count: 0,
+                description: record.description
+            };
+        }
+
+        const item = grouped[record.product];
+
+        item.quality += record.quality;
+        item.value += record.value;
+        item.service += record.service;
+        item.count++;
+
+        if (record.description) {
+            item.description = record.description;
+        }
+    });
+
+    const products = Object.values(grouped).map(function (item) {
+        const average = {
+            product: item.product,
+            description: item.description,
+            quality: item.quality / item.count,
+            value: item.value / item.count,
+            service: item.service / item.count,
+            count: item.count
+        };
+
+        return {
+            ...average,
+            score: calculateScore(average)
+        };
+    });
+
+    products.sort(function (a, b) {
+        return b.score - a.score;
+    });
+
+    const ranking = document.getElementById("ranking");
+
+    if (products.length === 0) {
+        ranking.innerHTML =
+            '<div class="product card">Submit feedback to see product rankings.</div>';
+        return;
+    }
+
+    ranking.innerHTML = products.map(function (item, index) {
+        const recommendation = index === 0
+            ? '<span class="badge">Recommended</span>'
+            : "";
+
+        const warning = item.count < 3
+            ? '<p class="warning">Risk Warning: Limited feedback. Collect more reviews before deciding.</p>'
+            : "";
+
+        return `
+            <div class="product">
+                <h3>${index + 1}. ${escapeHTML(item.product)}</h3>
+                ${recommendation}
+                <p>${escapeHTML(item.description || "No description provided.")}</p>
+                <p class="score">${item.score.toFixed(2)} / 5</p>
+                <p>Quality: ${item.quality.toFixed(1)} / 5</p>
+                <p>Value: ${item.value.toFixed(1)} / 5</p>
+                <p>Service: ${item.service.toFixed(1)} / 5</p>
+                <p>Feedback entries: ${item.count}</p>
+                ${warning}
+            </div>
+        `;
+    }).join("");
+}
+
+function showFeedback() {
+    const area = document.getElementById("feedbackRecords");
+
+    if (records.length === 0) {
+        area.innerHTML = "No feedback submitted yet.";
+        return;
+    }
+
+    area.innerHTML = records.slice().reverse().map(function (record) {
+        return `
+            <div class="product">
+                <h3>${escapeHTML(record.product)}</h3>
+                <p>${escapeHTML(record.description || "No description provided.")}</p>
+                <p>Quality: ${record.quality}/5 |
+                   Value: ${record.value}/5 |
+                   Service: ${record.service}/5</p>
+                <p>${escapeHTML(record.feedback)}</p>
+                <p class="small">Date: ${escapeHTML(record.date)}</p>
+            </div>
+        `;
+    }).join("");
+}
+
+["qWeight", "vWeight", "sWeight"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", function () {
+        document.getElementById("qValue").textContent =
+            document.getElementById("qWeight").value;
+        document.getElementById("vValue").textContent =
+            document.getElementById("vWeight").value;
+        document.getElementById("sValue").textContent =
+            document.getElementById("sWeight").value;
+
+        showRanking();
+    });
+});
+
+showRanking();
+showFeedback();
+</script>
+
+</body>
+</html>
+```
